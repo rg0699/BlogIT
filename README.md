@@ -1,5 +1,5 @@
 # BlogIT
-A simple Blogging App using Firebase.
+A simple Blogging App implemented using Firebase.
 
 Install & try the app : 
 [Download APK](https://drive.google.com/file/d/166yJwmbkwA_BQa9sLDcKw5qdYH7dENR7/view?usp=sharing)

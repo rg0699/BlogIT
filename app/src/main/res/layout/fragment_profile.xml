@@ -21,92 +21,96 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/user_details"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:background="@color/colorAccent">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/userPhoto"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                app:civ_border_width="2dp"
-                app:civ_border_color="@color/colorPrimary"
-                android:src="@drawable/default_profile_picture"
-                android:layout_marginStart="15dp" />
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/userName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userPhoto"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
-                    android:text="@string/user_name"
-                    android:textColor="#fff"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
+                    android:src="@drawable/default_profile_picture"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="2dp" />
 
-                <TextView
-                    android:id="@+id/userBio"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/hint_bio"
-                    android:textColor="#fff"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/user_name"
+                        android:textColor="#fff"
+                        android:textSize="21sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/userBio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/hint_bio"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
 
             </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="170dp"
-            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_edit_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/buttonstyle"
                 android:text="@string/edit_profile"
                 android:textColor="@color/common_google_signin_btn_text_light" />
+
 
         </LinearLayout>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview"
             android:layout_width="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_height="120dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="275dp"
-            android:layout_marginStart="15dp">
+            android:layout_below="@+id/user_details"
+            android:layout_centerHorizontal="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="3"
-                android:baselineAligned="false">
+                android:weightSum="3">
 
                 <LinearLayout
                     android:id="@+id/item_post"
@@ -190,14 +194,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="25dp">
+            android:paddingLeft="15dp">
 
             <ImageView
                 android:layout_width="36dp"
@@ -209,8 +214,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:paddingStart="20dp"
-                android:paddingLeft="20dp"
+                android:paddingStart="15dp"
+                android:paddingLeft="15dp"
                 android:text="@string/hint_email"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -220,8 +225,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:orientation="horizontal"
-            android:paddingStart="25dp"
-            android:paddingLeft="25dp">
+            android:paddingStart="15dp"
+            android:paddingLeft="15dp">
 
             <ImageView
                 android:layout_width="36dp"
@@ -233,8 +238,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:paddingStart="20dp"
-                android:paddingLeft="20dp"
+                android:paddingStart="15dp"
+                android:paddingLeft="15dp"
                 android:text="@string/hint_website"
                 android:autoLink="web"
                 android:textStyle="bold" />
@@ -245,8 +250,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:orientation="horizontal"
-            android:paddingStart="25dp"
-            android:paddingLeft="25dp">
+            android:paddingStart="15dp"
+            android:paddingLeft="15dp">
 
             <ImageView
                 android:layout_width="36dp"
@@ -258,8 +263,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:paddingStart="20dp"
-                android:paddingLeft="20dp"
+                android:paddingStart="15dp"
+                android:paddingLeft="15dp"
                 android:text="@string/hint_dob"
                 android:textStyle="bold" />
         </LinearLayout>

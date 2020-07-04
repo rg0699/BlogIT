@@ -11,6 +11,7 @@ Install & try the app :
 - Comment feature on posts.
 - Managing User Profile and info.
 - Reset Account Settings.
+- App sharing.
 
 ## Features To be Implemented
 - Push notifications on Post addition.

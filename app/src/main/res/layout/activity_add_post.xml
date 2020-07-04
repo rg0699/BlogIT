@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.AddPostActivity">
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:id="@+id/userLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:background="@color/colorAccent"
+                                    android:orientation="vertical">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/userPhoto"
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginTop="15dp"
+                                            android:src="@drawable/default_profile_picture"
+                                            app:civ_border_color="@color/colorPrimary"
+                                            app:civ_border_width="2dp" />
+
+                                        <!--                                        <LinearLayout-->
+                                        <!--                                            android:layout_width="match_parent"-->
+                                        <!--                                            android:layout_height="wrap_content"-->
+                                        <!--                                            android:layout_marginStart="0dp"-->
+                                        <!--                                            android:layout_marginLeft="0dp"-->
+                                        <!--                                            android:layout_marginTop="0dp"-->
+                                        <!--                                            android:orientation="vertical">-->
+
+                                        <!--                                                <TextView-->
+                                        <!--                                                    android:id="@+id/userName"-->
+                                        <!--                                                    android:layout_width="wrap_content"-->
+                                        <!--                                                    android:layout_height="wrap_content"-->
+                                        <!--                                                    android:layout_marginStart="15dp"-->
+                                        <!--                                                    android:layout_marginLeft="15dp"-->
+                                        <!--                                                    android:layout_marginTop="15dp"-->
+                                        <!--                                                    android:text="@string/user_name"-->
+                                        <!--                                                    android:textColor="#fff"-->
+                                        <!--                                                    android:textSize="21sp"-->
+                                        <!--                                                    android:textStyle="bold" />-->
+
+                                        <!--                                                <TextView-->
+                                        <!--                                                    android:id="@+id/userBio"-->
+                                        <!--                                                    android:layout_width="wrap_content"-->
+                                        <!--                                                    android:layout_height="wrap_content"-->
+                                        <!--                                                    android:layout_marginStart="15dp"-->
+                                        <!--                                                    android:layout_marginLeft="15dp"-->
+                                        <!--                                                    android:layout_marginTop="15dp"-->
+                                        <!--                                                    android:text="@string/my_bio"-->
+                                        <!--                                                    android:textColor="#fff"-->
+                                        <!--                                                    android:textSize="21sp"-->
+                                        <!--                                                    android:textStyle="bold" />-->
+
+
+                                        <!--                                        </LinearLayout>-->
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/addPostLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/userLayout"
+                                    android:layout_marginTop="0dp"
+                                    android:orientation="vertical">
+
+
+                                        <ImageView
+                                            android:id="@+id/post_image"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="300dp"
+                                            android:adjustViewBounds="true"
+                                            android:background="@drawable/common_google_signin_btn_text_light_normal_background"
+                                            android:paddingLeft="5dp"
+                                            android:paddingRight="5dp"
+                                            android:scaleType="fitXY" />
+
+                                        <EditText
+                                            android:id="@+id/post_title"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="20dp"
+                                            android:ems="10"
+                                            android:hint="Post title"
+                                            android:importantForAutofill="no"
+                                            android:inputType="textMultiLine|textShortMessage"
+                                            android:scrollHorizontally="false" />
+
+                                        <EditText
+                                            android:id="@+id/post_description"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="20dp"
+                                            android:ems="10"
+                                            android:hint="Post Description"
+                                            android:importantForAutofill="no"
+                                            android:inputType="textShortMessage|textMultiLine"
+                                            android:scrollHorizontally="false" />
+
+                                </LinearLayout>
+
+                        </RelativeLayout>
+
+                </ScrollView>
+
+                <!--                <Button-->
+                <!--                    android:id="@+id/submit_post"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_alignParentBottom="true"-->
+                <!--                    android:layout_centerHorizontal="true"-->
+                <!--                    android:text="submit post" />-->
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

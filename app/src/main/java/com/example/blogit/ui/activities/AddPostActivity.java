@@ -40,6 +40,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -64,6 +65,7 @@ public class AddPostActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private FirebaseUser mCurrentUser;
+    private Uri outputFileUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -212,9 +214,15 @@ public class AddPostActivity extends AppCompatActivity {
 
     private void openImageIntent() {
 
+        final File root = new File(getApplicationContext().getExternalCacheDir() + File.separator + "MyDir" + File.separator);
+        root.mkdirs();
+        final String fname = "img_"+ System.currentTimeMillis() + ".jpg";
+        final File sdImageMainDirectory = new File(root, fname);
+        outputFileUri = Uri.fromFile(sdImageMainDirectory);
+
         // Camera.
         final List<Intent> cameraIntents = new ArrayList<Intent>();
-        final Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        final Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
         final PackageManager packageManager = getPackageManager();
         final List<ResolveInfo> listCam = packageManager.queryIntentActivities(captureIntent, 0);
         for (ResolveInfo res : listCam) {
@@ -222,7 +230,7 @@ public class AddPostActivity extends AppCompatActivity {
             final Intent intent = new Intent(captureIntent);
             intent.setComponent(new ComponentName(packageName, res.activityInfo.name));
             intent.setPackage(packageName);
-            //intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
             cameraIntents.add(intent);
         }
 
@@ -254,16 +262,17 @@ public class AddPostActivity extends AppCompatActivity {
                     if (action == null) {
                         isCamera = false;
                     } else {
-                        isCamera = action.equals(MediaStore.ACTION_IMAGE_CAPTURE);
+                        isCamera = action.equals(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
                     }
                 }
 
                 if (isCamera) {
-                    postImg.setImageURI(mImageUri);
+                    mImageUri = outputFileUri;
+                    mUserPhoto.setImageURI(mImageUri);
                 }
                 else {
                     mImageUri = data.getData();
-                    postImg.setImageURI(mImageUri);
+                    mUserPhoto.setImageURI(mImageUri);
                 }
             }
         }

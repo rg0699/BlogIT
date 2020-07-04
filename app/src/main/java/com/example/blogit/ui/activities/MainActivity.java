@@ -160,25 +160,16 @@ public class MainActivity extends AppCompatActivity {
                 "Logged Out",
                 Toast.LENGTH_SHORT)
                 .show();
-//        Intent loginActivity = new Intent(MainActivity.this,LoginActivity.class);
-//        startActivity(loginActivity);
-//        finish();
     }
 
     private void shareApplication() {
-        ApplicationInfo app = getApplicationContext().getApplicationInfo();
-        String filePath = app.sourceDir;
 
-        Intent intent = new Intent(Intent.ACTION_SEND);
-
-        // MIME of .apk is "application/vnd.android.package-archive".
-        // but Bluetooth does not accept this. Let's use "*/*" instead.
-        intent.setType("*/*");
-
-
-        // Append file and send Intent
-        intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(filePath)));
-        startActivity(Intent.createChooser(intent, "Share app via"));
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = "https://drive.google.com/file/d/166yJwmbkwA_BQa9sLDcKw5qdYH7dENR7/view?usp=sharing";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "App link:");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share app via"));
     }
 
 

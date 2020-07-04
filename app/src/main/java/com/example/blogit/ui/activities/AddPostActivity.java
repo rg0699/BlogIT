@@ -93,9 +93,6 @@ public class AddPostActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openImageIntent();
-//                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-//                galleryIntent.setType("image/*");
-//                startActivityForResult(galleryIntent,GALLERY_REQUEST);
             }
         });
 

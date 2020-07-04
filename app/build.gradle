@@ -57,7 +57,7 @@ dependencies {
     }
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
-    //implementation 'com.github.yalantis:ucrop:2.2.2'
+    implementation 'com.github.yalantis:ucrop:2.2.2'
 
 //    implementation 'com.facebook.android:facebook-android-sdk:4.x'
 //    implementation 'com.twitter.sdk.android:twitter-core:3.x'

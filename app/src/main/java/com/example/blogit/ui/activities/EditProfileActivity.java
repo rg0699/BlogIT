@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -40,6 +41,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -62,6 +64,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private StorageReference mStorage;
     private static final int GALLERY_REQUEST = 1;
     private Uri mImageUri =null;
+    private Uri outputFileUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -280,9 +283,15 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void openImageIntent() {
 
+        final File root = new File(getApplicationContext().getExternalCacheDir() + File.separator + "MyDir" + File.separator);
+        root.mkdirs();
+        final String fname = "img_"+ System.currentTimeMillis() + ".jpg";
+        final File sdImageMainDirectory = new File(root, fname);
+        outputFileUri = Uri.fromFile(sdImageMainDirectory);
+
         // Camera.
         final List<Intent> cameraIntents = new ArrayList<Intent>();
-        final Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        final Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
         final PackageManager packageManager = getPackageManager();
         final List<ResolveInfo> listCam = packageManager.queryIntentActivities(captureIntent, 0);
         for (ResolveInfo res : listCam) {
@@ -290,7 +299,7 @@ public class EditProfileActivity extends AppCompatActivity {
             final Intent intent = new Intent(captureIntent);
             intent.setComponent(new ComponentName(packageName, res.activityInfo.name));
             intent.setPackage(packageName);
-            //intent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
             cameraIntents.add(intent);
         }
 
@@ -322,11 +331,12 @@ public class EditProfileActivity extends AppCompatActivity {
                     if (action == null) {
                         isCamera = false;
                     } else {
-                        isCamera = action.equals(MediaStore.ACTION_IMAGE_CAPTURE);
+                        isCamera = action.equals(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
                     }
                 }
 
                 if (isCamera) {
+                    mImageUri = outputFileUri;
                     mUserPhoto.setImageURI(mImageUri);
                 }
                 else {

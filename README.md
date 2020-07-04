@@ -16,3 +16,10 @@ Install & try the app :
 - Push notifications on Post addition.
 - Posts feed based on Follow/Following Requests.
 - Login using Google+, Facebook and Mobile Number.
+
+## Libraries Used
+- Firebase Real time Database
+- Firebase Storage
+- Firebase Authentication
+- Glide
+- Circle Image View

@@ -9,6 +9,7 @@ Install & try the app :
 - Add post with Image,Title and Description implemented using Firebase Real time Database and Storage.
 - Main Posts feed which displays all the posts posted by all the users.
 - Comment feature on posts.
+- Like feature on Posts.
 - Managing User Profile and info.
 - Reset Account Settings.
 - App sharing.

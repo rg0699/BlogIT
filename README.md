@@ -7,10 +7,9 @@ Install & try the app :
 ## Features Implemented
 - User Login, SignUp and User Authentication using Firebase Authentication.
 - Add post with Image or Description implemented using Firebase Real time Database and Storage.
-- Main Posts feed which displays all the posts posted by all the users.
-- Comment feature on posts.
-- Like feature on Posts.
+- Comment and Like feature on posts.
 - Follow/Unfollow users.
+- Main Posts feed based on Follow/Following Requests.
 - Search Users by name.
 - Managing User Profile and info.
 - Reset Account Settings.
@@ -18,7 +17,6 @@ Install & try the app :
 
 ## Features To be Implemented
 - Push notifications on Post addition.
-- Posts feed based on Follow/Following Requests.
 - Login using Google+, Facebook and Mobile Number.
 
 ## Libraries Used

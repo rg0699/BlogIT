@@ -12,6 +12,7 @@ Install & try the app :
 - Main Posts feed based on Follow/Following Requests.
 - Search Users by name.
 - Managing User Profile and info.
+- In-App one to one real-time chat feature. 
 - Reset Account Settings.
 - App sharing.
 
